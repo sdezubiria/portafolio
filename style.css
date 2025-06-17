@@ -1,0 +1,320 @@
+/* styles.css */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    overflow-x: hidden;
+    background-color: black; /* Changed from #0033cc to black */
+    color: white; /* Kept white for text */
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #intro-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background-color: #0033cc;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  }
+  
+  #intro-animation.hidden {
+    opacity: 0; /* Fade out */
+    visibility: hidden; /* Hide after fading */
+  }
+  
+  /* Initial state of panels */
+.panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Left panels */
+.panel.blue:nth-child(1),
+.panel.black:nth-child(3),
+.panel.white:nth-child(5) {
+  left: 0;
+}
+
+/* Right panels */
+.panel.blue:nth-child(2),
+.panel.black:nth-child(4),
+.panel.white:nth-child(6) {
+  right: 0;
+}
+
+/* Animation state */
+.panel.out {
+  transform: translateX(-100%); /* Left panels slide out to the left */
+}
+
+.panel.out:nth-child(2n) {
+  transform: translateX(100%); /* Right panels slide out to the right */
+}
+  
+  .blue { background-color: #0033cc; }
+  .black { background-color: #000000; }
+  .white { background-color: #ffffff; }
+  
+  header {
+    text-align: center;
+    margin-top: 80px;
+    padding: 2rem;
+  }
+  
+  .button {
+    background-color: black; /* Changed from #0033cc to black */
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  
+  .button:hover {
+    background-color: black; /* Kept black for hover */
+  }
+  
+  .proyectos {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .proyectos ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .proyectos li {
+    margin: 0.5rem 0;
+  }
+  
+  .proyectos a {
+    color: inherit; /* Use the default text color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .proyectos a:hover {
+    color: white; /* Change color on hover */
+  }
+
+/* Grid layout for projects */
+.proyectos .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  perspective: 1000px; /* Add perspective for 3D rotation */
+}
+
+/* Card styling */
+.card {
+  background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: center; /* Ensure rotation happens around the center */
+  cursor: pointer; /* Add pointer icon for clickable elements */
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Added white drop shadow */
+}
+
+.card img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.card p {
+  margin: 0 10px 10px;
+  color: white;
+}
+
+/* Hover effect for the hovered card */
+.card:hover {
+  transform: rotateY(10deg);
+  box-shadow: 0 8px 12px rgba(255, 255, 255, 0.2); /* Enhance shadow on hover */
+}
+
+/* Hover effect for adjacent cards to the right */
+.card:hover ~ .card {
+  transform: rotateY(5deg);
+}
+
+.card:hover ~ .card ~ .card {
+  transform: rotateY(2deg);
+}
+
+/* Hover effect for adjacent cards to the left */
+.card:hover + .card {
+  transform: rotateY(-5deg);
+}
+
+.card:hover + .card + .card {
+  transform: rotateY(-2deg);
+}
+
+/* Reset rotation for cards not hovered */
+.card:not(:hover) {
+  transform: rotateY(0deg);
+}
+
+/* General styles for the project page */
+.project {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: black; /* Changed from #4a4a4a to black */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+header .button {
+  background-color: black; /* Changed from #0033cc to black */
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  display: inline-block;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+header .button:hover {
+  background-color: black; /* Kept black for hover */
+}
+
+/* Main info section */
+.main-info {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.main-info .main-image {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.main-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-info h2 {
+  font-size: 1.8rem;
+  color: white; /* Kept white for text */
+  margin-bottom: 1rem;
+}
+
+.main-info .description {
+  font-size: 1rem;
+  color: white; /* Kept white for text */
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* Gallery section */
+.gallery {
+  margin-top: 2rem;
+}
+
+.gallery h3 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.gallery .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gallery .grid img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.5); /* Kept white for shadow */
+  transition: transform 0.3s ease;
+}
+
+.gallery .grid img:hover {
+  transform: scale(1.05);
+}

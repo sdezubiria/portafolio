@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - Simón</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="intro-animation">
+    <!-- Panels that animate outwards -->
+    <div class="panel blue"></div>
+    <div class="panel black"></div>
+    <div class="panel white"></div>
+    <div class="panel blue"></div>
+    <div class="panel black"></div>
+    <div class="panel white"></div>
+  </div>
+
+  <main class="hidden">
+    <header>
+      <h1>Simón De Zubiría</h1>
+      <p>Diseñador y desarrollador web</p>
+      <a href="CV_Simon.pdf" class="button" download>Descargar CV</a>
+    </header>
+
+    <section class="proyectos">
+      <h2>Proyectos</h2>
+      <div class="grid">
+        <a href="proyecto1.html" class="card">
+          <img src="p1.jpg" alt="Imagen de Proyecto 1" />
+          <h3>Oscilaciones</h3>
+          <p>Una exploración metamodernista del amor</p>
+        </a>
+        <a href="proyecto2.html" class="card">
+          <img src="p2.jpg" alt="Imagen de Proyecto 2" />
+          <h3>Portfolio Path</h3>
+          <p>Diseño web y branding para una marca de asesoría de arte</p>
+        </a>
+        <a href="proyecto3.html" class="card">
+          <img src="p3.jpg" alt="Imagen de Proyecto 3" />
+          <h3>The Doubtful Guest</h3>
+          <p>Proyecto Web narrativo</p>
+        </a>
+        <a href="proyecto4.html" class="card">
+          <img src="p4.jpg" alt="Imagen de Proyecto 4" />
+          <h3>LabJusticia</h3>
+          <p>Desarrollo de la página del laboratorio para la justica Uniandes</p>
+        </a>
+        <a href="proyecto5.html" class="card">
+          <img src="p5.jpg" alt="Imagen de Proyecto 5" />
+          <h3>Galería visual y audiovisual</h3>
+          <p>Colección de imágenes y videos que muestran otras facetas mías</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Animar y luego mostrar contenido
+    window.addEventListener("load", () => {
+      const panels = document.querySelectorAll(".panel");
+      const introAnimation = document.querySelector("#intro-animation");
+      const mainContent = document.querySelector("main");
+
+      // Ensure panels animate out one by one
+      panels.forEach((panel, i) => {
+        setTimeout(() => {
+          panel.classList.add("out");
+        }, i * 200); // Reduce delay to 200ms for faster animation
+      });
+
+      // Wait for all panels to finish animating before showing main content
+      const totalAnimationTime = panels.length * 200 + 500; // Adjust total time
+      setTimeout(() => {
+        introAnimation.classList.add("hidden"); // Smooth fade-out effect
+        setTimeout(() => {
+          mainContent.classList.remove("hidden"); // Show main content
+        }, 500); // Wait for fade-out to complete
+      }, totalAnimationTime);
+    });
+  </script>
+</body>
+</html>
