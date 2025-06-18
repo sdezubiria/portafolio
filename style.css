@@ -288,9 +288,9 @@ header p {
 /* Card styling */
 .card {
   background-color: blue;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   /* Kept white for border */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
