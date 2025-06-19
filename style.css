@@ -126,7 +126,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -139,16 +139,81 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif; /* Set Work Sans as default */
   overflow-x: hidden;
-  /* background-color: blue; */
-  /* Changed from #0033cc to black */
   color: white;
-  /* Kept white for text */
 }
-
 .hidden {
   display: none;
+}
+
+/* Import the PPMondwest font */
+@font-face {
+  font-family: "PPMondwest";
+  src: url("PPMondwest-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use Roboto Mono Bold Italic Uppercase for all headings, links, buttons, etc. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button,
+.button,
+.card h3,
+.gallery h3 {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+/* EXCEPTIONS: Use Mondwest for the name and "Proyectos" tag */
+.header h1,
+.proyectos h1 {
+  font-family: "PPMondwest", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: none;
+  font-size: 5rem;
+}
+
+/* Keep paragraphs styled separately */
+
+p {
+  font-family: "Work Sans", sans-serif; /* Use Work Sans for paragraphs */
+  font-size: 1rem;
+  line-height: 1.6;
+  color: white;
+}
+h1 {
+  font-size: 10vw;
+}
+
+/* Background grid container */
+#background-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it stays behind all content */
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* Initial number of columns */
+  grid-template-rows: repeat(10, 1fr); /* Initial number of rows */
+  background-color: blue; /* Blue background */
+}
+
+#background-grid div {
+  background-color: blue; /* Blue cells */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* White lines with opacity */
+  box-sizing: border-box; /* Ensure borders are included in the element's dimensions */
+  transition: all 0.5s ease; /* Smooth transitions for spans */
 }
 
 #intro-animation {
@@ -209,7 +274,7 @@ html {
 }
 
 .blue {
-  background-color: #0033cc;
+  background-color: blue;
 }
 
 .black {
@@ -311,11 +376,16 @@ header p {
 .card h3 {
   margin: 10px 0;
   font-size: 1.2em;
+  text-transform: uppercase;
 }
 
 .card p {
   margin: 0 10px 10px;
   color: white;
+  font-family: "Work Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: none;
 }
 
 /* Hover effect for the hovered card */
@@ -326,20 +396,20 @@ header p {
 }
 
 /* Hover effect for adjacent cards to the right */
-.card:hover~.card {
+.card:hover ~ .card {
   transform: rotateY(5deg);
 }
 
-.card:hover~.card~.card {
+.card:hover ~ .card ~ .card {
   transform: rotateY(2deg);
 }
 
 /* Hover effect for adjacent cards to the left */
-.card:hover+.card {
+.card:hover + .card {
   transform: rotateY(-5deg);
 }
 
-.card:hover+.card+.card {
+.card:hover + .card + .card {
   transform: rotateY(-2deg);
 }
 
@@ -445,59 +515,43 @@ header .button:hover {
 .gallery .grid img:hover {
   transform: scale(1.05);
 }
-
-/* Import the PPMondwest font */
-@font-face {
-  font-family: 'PPMondwest';
-  src: url('PPMondwest-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Apply PPMondwest font to all headings and non-paragraph text */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
-button,
-.button,
-.card h3,
-.gallery h3 {
-  font-family: 'PPMondwest', sans-serif;
-}
-
-/* Keep paragraphs styled separately */
-p {
-  font-family: sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: white;
-}
-
-h1 {
-  font-size: 10vw;
-}
-
-/* Background grid container */
-#background-grid {
-  position: fixed;
-  top: 0;
-  left: 0;
+.header {
+  background: rgba(0, 0, 255, 0.5);
+  margin: 0px;
+  padding-top: 128px;
+  padding-bottom: 64px;
+  padding-left: 0px;
+  padding-right: 0px;
   width: 100%;
-  height: 100%;
-  z-index: -1; /* Ensure it stays behind all content */
-  display: grid;
-  grid-template-columns: repeat(10, 1fr); /* Initial number of columns */
-  grid-template-rows: repeat(10, 1fr); /* Initial number of rows */
-  background-color: blue; /* Blue background */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+.header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all children horizontally */
+  width: 100%;
+}
+.header p {
+  max-width: 60%;
+  text-align: center; /* Center the text inside the paragraph */
 }
 
-#background-grid div {
-  background-color: blue; /* Blue cells */
-  border: 1px solid rgba(255, 255, 255, 0.5); /* White lines with opacity */
-  box-sizing: border-box; /* Ensure borders are included in the element's dimensions */
-  transition: all 0.5s ease; /* Smooth transitions for spans */
+@media (max-width: 600px) {
+  .header p {
+    font-size: 1rem;
+    max-width: 80%;
+    text-align: justify;
+    text-justify: inter-word; /* Justify text for better readability on small screens */
+  }
+  .card img {
+    height: 30vh; /* Adjusted for smaller screens */
+  }
+}
+
+.header h1:not(:first-child) {
+  margin-top: 3rem; /* Adjusted for better visibility */
+  margin-bottom: 7rem; /* Space below the heading */
 }
