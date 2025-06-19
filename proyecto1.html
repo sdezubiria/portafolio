@@ -1,35 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyecto 1</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <a href="index.html" class="button">Volver al Inicio</a>
-  </header>
-
-  <main class="project">
-    <section class="main-info">
-      <img src="main-image.jpg" alt="Imagen principal del Proyecto 1" class="main-image" />
-      <h1>Proyecto 1</h1>
-      <h2>Subtítulo del Proyecto 1</h2>
-      <p class="description">
-        Aquí va una descripción detallada del Proyecto 1. Explica los objetivos, el proceso, y los resultados obtenidos.
-      </p>
-    </section>
-
-    <section class="gallery">
-      <h3>Galería</h3>
-      <div class="grid">
-        <img src="gallery1.jpg" alt="Imagen 1 de la galería" />
-        <img src="gallery2.jpg" alt="Imagen 2 de la galería" />
-        <img src="gallery3.jpg" alt="Imagen 3 de la galería" />
-        <img src="gallery4.jpg" alt="Imagen 4 de la galería" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto 1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="background-grid"></div>
+    <main class="hidden">
+      <header class="header">
+        <div>
+          <a href="index.html" class="button">Volver al Inicio</a>
+          <h1>Oscilaciones</h1>
+          <h2>Una exploración metamodernista del amor</h2>
+          <p class="description">
+            «Oscilaciones» es un proyecto interactivo que explora el amor desde
+            una perspectiva metamodernista, integrando animación e ilustración y
+            encapsulándolas en el soporte de la instalación para fomentar el
+            diálogo y la reflexión colectiva sobre este complejo concepto. A
+            través de la coexistencia de puntos de vista opuestos -como la
+            irracionalidad del amor frente a su dimensión ética y racional-, el
+            proyecto cuestiona la necesidad de unificar visiones en una única
+            verdad. Inspirado en la idea de la oscilación como principio
+            creativo, Oscilaciones busca que el espectador se relacione con
+            arquetipos visuales cargados de ironía y paradojas emocionales. Este
+            planteamiento permite que la experiencia del amor, en su capacidad
+            de generar tanto placer como dolor, encuentre nuevas expresiones en
+            un espacio de interacción constante. Consta de un programa central
+            realizado en Touchdesigner y Python que desencadena animaciones en
+            función de las cartas que ve, un libro ilustrado, las propias cartas
+            y unos soportes impresos en 3d para la cámara y las cartas.
+          </p>
+        </div>
+      </header>
+      <section class="main-info">
+        <img
+          src="/Proyecto1/MainImage1.png"
+          alt="Imagen principal del Proyecto 1"
+          class="main-image"
+        />
+      </section>
+      <div class="gallery-banner">
+        <h3>Galería</h3>
       </div>
-    </section>
-  </main>
-</body>
+      <section class="proyectos">
+        <div class="grid">
+          <div class="card">
+            <img src="/Proyecto1/Gallery1.png" alt="Imagen 1 de la galería" />
+          </div>
+          <div class="card">
+            <img src="/Proyecto1/Gallery2.png" alt="Imagen 1 de la galería" />
+          </div>
+          <div class="card">
+            <img src="/Proyecto1/Gallery3.png" alt="Imagen 1 de la galería" />
+          </div>
+          <div class="card">
+            <img src="/Proyecto1/Gallery4.png" alt="Imagen 1 de la galería" />
+          </div>
+        </div>
+      </section>
+      <div class="ver-mas-container">
+        <a
+          href="https://www.behance.net/gallery/219516747/Oscilaciones"
+          class="button"
+        >Ver más del proyecto</a>
+          <a href="index.html" class="button">Volver al Inicio</a>
+        
+      </div>
+      
+    </main>
+
+    <!-- Lightbox Modal -->
+<div id="lightbox-modal" class="lightbox-modal hidden">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" src="" alt="Imagen ampliada" />
+</div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

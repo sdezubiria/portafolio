@@ -315,7 +315,7 @@ header p {
 
 .proyectos {
   text-align: center;
-  padding: 2rem;
+  padding: 0 2rem;
 }
 
 .proyectos ul {
@@ -460,10 +460,10 @@ header .button:hover {
 }
 
 .main-info .main-image {
+  object-fit: contain;
   width: 100%;
-  max-width: 800px;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  height: auto;
+
 }
 
 .main-info h1 {
@@ -489,7 +489,8 @@ header .button:hover {
 
 /* Gallery section */
 .gallery {
-  margin-top: 2rem;
+  margin-top: 0;
+  padding: 0 2rem 4rem 2rem;
 }
 
 .gallery h3 {
@@ -549,9 +550,95 @@ header .button:hover {
   .card img {
     height: 30vh; /* Adjusted for smaller screens */
   }
+  .header h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    word-break: break-word;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .header h1:not(:first-child) {
   margin-top: 3rem; /* Adjusted for better visibility */
   margin-bottom: 7rem; /* Space below the heading */
+}
+.gallery-banner {
+  width: 100%;
+  background: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 1.5rem 0;
+  margin-bottom: 2rem;
+}
+.gallery-banner h3 {
+  color: white;
+  margin: 0;
+  font-size: 2.2rem;
+  text-align: center;
+  width: 100%;
+}
+.ver-mas-container {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 6rem;
+}
+.ver-mas-container .button {
+  background-color: blue;
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  display: inline-block;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.ver-mas-container .button:hover {
+  background-color: black;
+  color: white;
+}
+
+.proyectos .card img {
+  cursor: pointer;
+}
+
+/* Lightbox styles */
+.lightbox-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  transition: opacity 0.3s;
+}
+.lightbox-modal.hidden {
+  display: none;
+}
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+  user-select: none;
 }
