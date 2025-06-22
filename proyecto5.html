@@ -5,56 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proyecto 1</title>
     <link rel="stylesheet" href="style.css" />
-       <link rel="icon" type="image/x-icon" href="icon.ico" />
+    <link rel="icon" type="image/x-icon" href="icon.ico" />
   </head>
   <body>
+    <div id="loader" class="loader-bg">
+      <div class="loader-spinner"></div>
+    </div>
     <div id="background-grid"></div>
     <main class="hidden">
       <header class="header">
         <div>
           <a href="index.html" class="button">Volver al Inicio</a>
-          <h1>Página Web de Labjusticia</h1>
-          <h2>
-            Desarrolo de la página del laboratorio para la Justicia Uniandes
-          </h2>
+          <h1>Otros territorios</h1>
+          <h2>Exploraciones visuales, ideas sueltas y proyectos paralelos</h2>
           <p class="description">
-            Desde un diseño hecho en la clase de la clínica por Alejandro Torres
-            y María Paula Paez desarrollé la página web del laboratorio para la
-            Justicia Uniandes. La página está hecha en HTML, CSS y JavaScript.
+            Esta sección reúne imágenes, piezas gráficas y fragmentos de
+            proyectos que no encajan en categorías fijas, pero que hablan de mi
+            curiosidad y del rango de lenguajes que puedo manejar. Son
+            ejercicios de experimentación, encargos puntuales o ideas personales
+            que exploran otras formas de narrar, diseñar y construir
+            visualmente.
+          </p>
         </div>
       </header>
-      <section class="main-info">
-        <img
-          src="Proyecto4/MainImage.png"
-          alt="Imagen principal del Proyecto 1"
-          class="main-image"
-        />
-      </section>
       <div class="gallery-banner">
         <h3>Galería</h3>
       </div>
-      <section class="proyectos">
-        <div class="grid">
-          <div class="card">
-            <img src="Proyecto4/Gallery1.png" alt="Imagen 1 de la galería" />
-          </div>
-          <div class="card">
-            <img src="Proyecto4/Gallery2.png" alt="Imagen 1 de la galería" />
-          </div>
-          <div class="card">
-            <img src="Proyecto4/Gallery3.png" alt="Imagen 1 de la galería" />
-          </div>
-          <div class="card">
-            <img src="Proyecto4/Gallery4.png" alt="Imagen 1 de la galería" />
-          </div>
+      <section class="gallery modular-gallery">
+        <div class="modular-grid" id="modular-grid">
+          <!-- Images will be injected by JS -->
         </div>
       </section>
       <div class="ver-mas-container">
-        <a
-          href="https://labjusticia.uniandes.edu.co/index.html"
-          class="button"
-          >Ver más del proyecto</a
-        >
         <a href="index.html" class="button">Volver al Inicio</a>
       </div>
     </main>

@@ -216,6 +216,13 @@ if (typeof document !== 'undefined') {
 
 // Animar y luego mostrar contenido
 window.addEventListener("load", () => {
+  // Hide loader after everything is loaded
+  const loader = document.getElementById('loader');
+  if (loader) {
+    loader.classList.add('hide');
+    setTimeout(() => loader.style.display = 'none', 500);
+  }
+
   const panels = document.querySelectorAll(".panel");
   const introAnimation = document.querySelector("#intro-animation");
   const mainContent = document.querySelector("main");
@@ -270,3 +277,59 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// Modular gallery for Proyecto5
+if (window.location.pathname.includes('proyecto5.html')) {
+  const images = [
+    "0010.png","0013.png","0023.png","0030.png","0104.png","0104_1.png","0105.png","0110.png","0114.png","0120.png","0122.png","0122_1.png","0127.png","0131.png","0148.png","0158.png","0185.png","0212.png","0246.png","0308.png","0329.png","0359.png","0360.png","0360_1.png","aburro2.png","bandana.png","Brutalismus.png","CamScanner 14-11-2024 11.04_4.jpg","casaFondo.png","EstatuaFondo-01.png","EstoSeCompone.png","estrella4.png","HYPNOS02.png","inthebeat.png","Mago.png","mamut.png","margarita.png","MockupMerchPortals.png","montajeEsquema.png","mordiscoAlSol.png","oruga.png","portada.png","portafa.png","Poster01.png","predio.png","renderSimbolario.png","simbolos.png","still.png","Still01.png","Still12.png","Still17.png","Still20.png","Still21.png","Still26.png","Still31.png","Still32.png","StillBuha2030.png","TDMovieOut.0.1114.png","TDMovieOut.0.1382.png","TDMovieOut.0.170.png","TDMovieOut.0.464.png","TDMovieOut.0.493.png","TDMovieOut.0.868.png","TDMovieOut.0.942.png","TernuraRadicalArtboard-1_1.png","tigres01.png","unlugar.png"
+  ];
+  // Shuffle images array
+  for (let i = images.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [images[i], images[j]] = [images[j], images[i]];
+  }
+  const grid = document.getElementById('modular-grid');
+  if (grid) {
+    images.forEach((img, i) => {
+      // Randomize span for a modular look
+      const colSpan = Math.random() > 0.7 ? 2 : 1;
+      const rowSpan = Math.random() > 0.7 ? 2 : 1;
+      const div = document.createElement('div');
+      div.className = 'modular-item';
+      div.style.gridColumn = `span ${colSpan}`;
+      div.style.gridRow = `span ${rowSpan}`;
+      const image = document.createElement('img');
+      image.src = `Proyecto5/${img}`;
+      image.alt = img;
+      div.appendChild(image);
+      grid.appendChild(div);
+    });
+  }
+  // Lightbox for modular gallery
+  const lightboxModal = document.getElementById('lightbox-modal');
+  const lightboxImg = document.querySelector('.lightbox-content');
+  const lightboxClose = document.querySelector('.lightbox-close');
+  grid.addEventListener('click', function (e) {
+    const target = e.target;
+    if (target.tagName === 'IMG') {
+      lightboxImg.src = target.src;
+      lightboxModal.classList.remove('hidden');
+    }
+  });
+  lightboxClose.addEventListener('click', function () {
+    lightboxModal.classList.add('hidden');
+    lightboxImg.src = '';
+  });
+  lightboxModal.addEventListener('click', function (e) {
+    if (e.target === lightboxModal) {
+      lightboxModal.classList.add('hidden');
+      lightboxImg.src = '';
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lightboxModal.classList.contains('hidden') && (e.key === 'Escape' || e.key === 'Esc')) {
+      lightboxModal.classList.add('hidden');
+      lightboxImg.src = '';
+    }
+  });
+}

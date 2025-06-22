@@ -365,8 +365,11 @@ header .button:hover,
 .lightbox-content {
   max-width: 90vw;
   max-height: 80vh;
-  border-radius: 10px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  /* Remove border-radius and cursor effects */
+  border-radius: 0 !important;
+  cursor: default !important;
+  outline: none;
 }
 .lightbox-close {
   position: absolute;
@@ -380,6 +383,20 @@ header .button:hover,
   user-select: none;
 }
 
+/* Remove tap highlight/circle on lightbox */
+.lightbox-modal, .lightbox-content, .lightbox-close {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Remove tap/click highlight (white circle) on all elements */
+* {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 /* Ver más container */
 .ver-mas-container {
   text-align: center;
@@ -389,6 +406,46 @@ header .button:hover,
   align-items: center;
   justify-content: center;
   gap: 6rem;
+}
+
+/* Modular Gallery */
+.modular-gallery {
+  padding: 0 2rem 4rem 2rem;
+}
+.modular-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-auto-rows: 180px;
+  gap: 18px;
+  margin-top: 2rem;
+}
+.modular-item {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  background: #222;
+  transition: box-shadow 0.3s;
+}
+.modular-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s;
+  display: block;
+}
+.modular-item:hover img {
+  filter: brightness(1);
+}
+@media (max-width: 700px) {
+  .modular-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-auto-rows: 120px;
+    gap: 10px;
+  }
+  .modular-item img {
+    filter: brightness(1) !important;
+  }
 }
 
 /* Responsive styles */
@@ -425,4 +482,33 @@ header .button:hover,
   .ver-mas-container {
     gap: 2rem;
   }
+}
+
+/* Loader styles */
+.loader-bg {
+  position: fixed;
+  z-index: 10000;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s;
+}
+.loader-spinner {
+  border: 1px solid #f3f3f3;
+  border-top: 8px solid blue;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.loader-bg.hide {
+  opacity: 0;
+  pointer-events: none;
 }
