@@ -1,81 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio - Simón</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Add Work Sans and Roboto Mono from Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/x-icon" href="icon.ico" />
-  </head>
 
-  <body>
-    <div id="loader" class="loader-bg">
-      <div class="loader-spinner"></div>
-    </div>
-    <div id="background-grid"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - Simón</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Add Work Sans and Roboto Mono from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="icon.ico" />
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PD48XPX8');</script>
+  <!-- End Google Tag Manager -->
+</head>
 
-    <main class="hidden">
-      <header class="header">
-        <div>
-          <h1>Simón De Zubiría Restrepo</h1>
-          <h2>Diseñador y desarrollador web</h2>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD48XPX8" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="loader" class="loader-bg">
+    <div class="loader-spinner"></div>
+  </div>
+  <div id="background-grid"></div>
+
+  <main class="hidden">
+    <header class="header">
+      <div>
+        <h1>Simón De Zubiría Restrepo</h1>
+        <h2>Diseñador y desarrollador web</h2>
+        <p>
+          Me interesa profundamente la programación como una herramienta para
+          crear experiencias visuales significativas, impactantes y
+          técnicamente refinadas. Considero el código no solo como un lenguaje
+          funcional, sino como un medio creativo con el potencial de generar
+          conexiones auténticas a través del arte, la interacción y el diseño.
+          Poseo una sensibilidad estética desarrollada y un fuerte impulso
+          hacia la creación en todas sus formas. Mis intereses abarcan el
+          desarrollo visual con código, el diseño gráfico, la animación, la
+          ilustración, el 3D y las experiencias interactivas.
+        </p>
+        <a href="CVSimon.pdf" class="button" download>Descargar CV</a>
+        <h1>Proyectos</h1>
+        <div></div>
+      </div>
+    </header>
+
+    <section class="proyectos">
+      <div class="grid">
+        <a href="proyecto1.html" class="card">
+          <img src="Proyecto1/Gallery1.png" alt="Imagen de Proyecto 1" />
+          <h3>Oscilaciones</h3>
+          <p>Una exploración metamodernista del amor</p>
+        </a>
+        <a href="proyecto2.html" class="card">
+          <img src="Proyecto2/Gallery4.png" alt="Imagen de Proyecto 2" />
+          <h3>Portfolio Path</h3>
+          <p>Diseño web y branding para una marca de asesoría de arte</p>
+        </a>
+        <a href="proyecto3.html" class="card">
+          <img src="Proyecto3/Gallery1.png" alt="Imagen de Proyecto 3" />
+          <h3>The Doubtful Guest</h3>
+          <p>Proyecto Web narrativo</p>
+        </a>
+        <a href="proyecto4.html" class="card">
+          <img src="Proyecto4/Gallery1.png" alt="Imagen de Proyecto 4" />
+          <h3>LabJusticia</h3>
           <p>
-            Me interesa profundamente la programación como una herramienta para
-            crear experiencias visuales significativas, impactantes y
-            técnicamente refinadas. Considero el código no solo como un lenguaje
-            funcional, sino como un medio creativo con el potencial de generar
-            conexiones auténticas a través del arte, la interacción y el diseño.
-            Poseo una sensibilidad estética desarrollada y un fuerte impulso
-            hacia la creación en todas sus formas. Mis intereses abarcan el
-            desarrollo visual con código, el diseño gráfico, la animación, la
-            ilustración, el 3D y las experiencias interactivas.
+            Desarrollo de la página del laboratorio para la justica Uniandes
           </p>
-          <a href="CVSimon.pdf" class="button" download>Descargar CV</a>
-          <h1>Proyectos</h1>
-          <div></div>
-        </div>
-      </header>
+        </a>
+        <a href="proyecto5.html" class="card">
+          <img src="Proyecto5/tigres01.png" alt="Imagen de Proyecto 5" />
+          <h3>Otros territorios</h3>
+          <p>Exploraciones visuales, ideas sueltas y proyectos paralelos</p>
+        </a>
+      </div>
+    </section>
+  </main>
 
-      <section class="proyectos">
-        <div class="grid">
-          <a href="proyecto1.html" class="card">
-            <img src="Proyecto1/Gallery1.png" alt="Imagen de Proyecto 1" />
-            <h3>Oscilaciones</h3>
-            <p>Una exploración metamodernista del amor</p>
-          </a>
-          <a href="proyecto2.html" class="card">
-            <img src="Proyecto2/Gallery4.png" alt="Imagen de Proyecto 2" />
-            <h3>Portfolio Path</h3>
-            <p>Diseño web y branding para una marca de asesoría de arte</p>
-          </a>
-          <a href="proyecto3.html" class="card">
-            <img src="Proyecto3/Gallery1.png" alt="Imagen de Proyecto 3" />
-            <h3>The Doubtful Guest</h3>
-            <p>Proyecto Web narrativo</p>
-          </a>
-          <a href="proyecto4.html" class="card">
-            <img src="Proyecto4/Gallery1.png" alt="Imagen de Proyecto 4" />
-            <h3>LabJusticia</h3>
-            <p>
-              Desarrollo de la página del laboratorio para la justica Uniandes
-            </p>
-          </a>
-          <a href="proyecto5.html" class="card">
-            <img src="Proyecto5/tigres01.png" alt="Imagen de Proyecto 5" />
-            <h3>Otros territorios</h3>
-            <p>Exploraciones visuales, ideas sueltas y proyectos paralelos</p>
-          </a>
-        </div>
-      </section>
-    </main>
+  <script src="script.js"></script>
+</body>
 
-    <script src="script.js"></script>
-  </body>
 </html>
